@@ -1,18 +1,37 @@
-import { Component, createRef } from 'react';
+import { Component, createRef, RefObject } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 
 import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
 
-class ModalEditFood extends Component {
-  constructor(props) {
+interface FoodProps {
+  id: number;
+  available: boolean;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}
+
+interface ModalEditFoodProps {
+  isOpen: boolean;
+  setIsOpen: () => void;
+  formRef: RefObject<HTMLFormElement>;
+  handleUpdateFood: (arg0: FoodProps) => void;
+  editingFood: boolean;
+}
+
+class ModalEditFood extends Component<ModalEditFoodProps> {
+  // private formRef = createRef<HTMLFormElement>()
+
+  constructor(props: ModalEditFoodProps) {
     super(props);
 
-    this.formRef = createRef()
+    this.formRef = createRef<HTMLFormElement>()
   }
 
-  handleSubmit = async (data) => {
+  handleSubmit = async (data: FoodProps) => {
     const { setIsOpen, handleUpdateFood } = this.props;
 
     handleUpdateFood(data);
