@@ -5,6 +5,8 @@ import { Form } from './styles';
 import Modal from '../Modal';
 import Input from '../Input';
 
+import { FormHandles } from '@unform/core';
+
 interface FoodProps {
   id: number;
   available: boolean;
@@ -17,18 +19,17 @@ interface FoodProps {
 interface ModalEditFoodProps {
   isOpen: boolean;
   setIsOpen: () => void;
-  formRef: RefObject<HTMLFormElement>;
   handleUpdateFood: (arg0: FoodProps) => void;
-  editingFood: boolean;
+  editingFood: string | any;
 }
 
 class ModalEditFood extends Component<ModalEditFoodProps> {
-  // private formRef = createRef<HTMLFormElement>()
+  private formRef = createRef<FormHandles>()
 
   constructor(props: ModalEditFoodProps) {
     super(props);
 
-    this.formRef = createRef<HTMLFormElement>()
+    this.formRef = createRef()
   }
 
   handleSubmit = async (data: FoodProps) => {
