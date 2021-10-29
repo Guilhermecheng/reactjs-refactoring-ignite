@@ -7,16 +7,10 @@ import ModalAddFood from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
 
-interface DashboardProps {
-}
+import { FoodProps } from '../../types';
 
-interface FoodProps {
-    id: number;
-    available: boolean;
-    name: string;
-    description: string;
-    price: number;
-    image: string;
+interface DashboardProps {
+  // empty props
 }
 
 interface DashboardState {

@@ -7,14 +7,7 @@ import Input from '../Input';
 
 import { FormHandles } from '@unform/core';
 
-interface FoodProps {
-  id: number;
-  available: boolean;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-}
+import { FoodProps } from '../../types';
 
 interface ModalAddFoodProps {
   isOpen: boolean;
